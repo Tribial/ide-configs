@@ -1,3 +1,3 @@
-# Example_config
+# Just a config
 
-This can be used as an example custom config for NvChad. Do check the https://github.com/NvChad/nvcommunity
+One of many, probably way worse than those prepared by professionals, but it's mine :)
