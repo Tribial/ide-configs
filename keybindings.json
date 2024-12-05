@@ -1,0 +1,109 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+pagedown",
+    "command": "-extension.vim_ctrl+pagedown",
+    "when": "editorTextFocus && vim.active && vim.use<C-pagedown> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-extension.vim_ctrl+p",
+    "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "extension.vim_ctrl+pagedown"
+  },
+  {
+    "key": "alt+;",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Normal'",
+    "args": {
+      "after": ["m", "z", "A", ";", "<esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "alt+;",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Insert'",
+    "args": {
+      "after": ["<esc>", "m", "z", "A", ";", "<esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "alt+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Normal'",
+    "args": {
+      "after": ["m", "z", "o", "<esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "alt+shift+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Normal'",
+    "args": {
+      "after": ["m", "z", "O", "<esc>", "`", "z"]
+    }
+  },
+  {
+    "key": "alt+o",
+    "command": "vim.remap",
+    "when": "inputFocus && vim.mode == 'Insert'",
+    "args": {
+      "after": ["<esc>", "o"]
+    }
+  },
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorFocus"
+  },
+  // Up and down Navigation
+  {
+    "key": "ctrl+k",
+    "when": "codeActionMenuVisible",
+    "command": "selectPrevCodeAction"
+  },
+  {
+    "key": "ctrl+j",
+    "when": "codeActionMenuVisible",
+    "command": "selectNextCodeAction"
+  },
+  {
+    "key": "ctrl+k",
+    "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible",
+    "command": "search.focus.prevInputBox"
+  },
+  {
+    "key": "ctrl+j",
+    "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible",
+    "command": "search.focus.nextInputBox"
+  },
+  //   {
+  //     "key": "ctr+s",
+  //     "command": "vim.remap",
+  //     "when": "inputFocus && vim.mode == 'Insert'",
+  //     "args": {
+  //       "after": ["backspace"]
+  //     }
+  //   },
+//   {
+//     "key": "ctr+d",
+//     "command": "editor.action.deleteForward",
+//     "when": "inputFocus && vim.mode == 'Insert'",
+//     "args": {
+//       "after": ["<delete>"]
+//     }
+//   }
+]

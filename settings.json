@@ -1,0 +1,106 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.lineNumbers": "relative",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-s>": false,
+    "<C-z>": false
+  },
+  "vim.vimrc.path": "$HOME/.vimrc",
+  "vim.vimrc.enable": false,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    // Movement and goto mappings
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "l"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    // LSP mappings
+    {
+      "before": ["<leader>", "l", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "l", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "l", "j"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["<leader>", "l", "k"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+    {
+      "before": ["<leader>", "l", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    // search mappings
+    {
+      "before": ["<leader>", "s", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "s", "s"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "s", "t"],
+      "commands": ["workbench.action.findInFiles"]
+    }
+    // TODO: Debug mappings
+    // buffers ctr+tab change buffers, 
+    //TODO: Git mappings
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontSize": 18,
+  "editor.guides.bracketPairs": true
+}
