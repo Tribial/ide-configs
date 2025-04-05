@@ -64,6 +64,8 @@ nmap gr <Action>(FindUsages)
 nmap gn <Action>(NextOccurence)
 nmap gN <Action>(PreviousOccurence)
 nmap gp <Action>(ReSharperGotoContainingDeclaration)
+nmap gj <Action>(MethodDown)
+nmap gk <Action>(MethodUp)
 
 " LSP mappings
 nmap <leader>lf <Action>(ReformatCode)
