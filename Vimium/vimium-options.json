@@ -1,0 +1,5 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\nmap e LinkHints.activateMode action=hover\nmap <a-f> LinkHints.activateMode action=focus\nmap gl Vomnibar.activateBookmarks TASK",
+  "grabBackFocus": true,
+  "settingsVersion": "2.2.1"
+}
