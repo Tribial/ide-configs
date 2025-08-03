@@ -159,11 +159,11 @@ zle -N fzf-cd-widget
 bindkey '^R' fzf-history-widget
 bindkey '^H' fzf-cd-widget
 
-export EDITOR=nvim
-export VISUAL=nvim
+# export EDITOR=nvim
+# export VISUAL=nvim
 export KUBE_EDITOR=nvim
 export ZELLIJ_AUTO_ATTACH=true
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="$PATH:$HOME/.dotnet"
 
