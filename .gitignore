@@ -1,0 +1,40 @@
+.idea/**
+
+# Swap, backup, and undo files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.un~
+
+# Neovim directories
+NeoVim/.local/
+NeoVim/shada/
+NeoVim/undo/
+NeoVim/backup/
+NeoVim/swap/
+
+# Neovim log
+NeoVim/log/
+
+# Plugin-specific
+NeoVim/packer_compiled.lua
+NeoVim/lazy-lock.json
+
+# LSP-related cache
+NeoVim/nvim/.cache/
+NeoVim/nvim/.lsp/
+
+# Tree-sitter compiled parsers
+NeoVim/parser/
+
+# Telescope history
+NeoVim/.nvim/telescope_history.sqlite3
+
+# OS-specific
+NeoVim/.DS_Store
+NeoVim/Thumbs.db
+
+# Optional: if you use `lazy.nvim` or `packer.nvim`
+NeoVim/site/pack/
+NeoVim/lazy-lock.json

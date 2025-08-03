@@ -2,14 +2,14 @@
 
 set -e
 
-if [ -n "$BASH_SOURCE" ]; then
-	SCRIPT_PATH="$(realpath "${BASH_SOURCE[0]}")"
-elif [ -n "$ZSH_VERSION" ]; then
-	SCRIPT_PATH="$(realpath "${(%):-%N}")"
-else
-	echo "Unsupported shell"
-	exit 1
-fi
+SCRIPT_PATH="$(realpath "${BASH_SOURCE[0]}")"
+#if [ -n "$BASH_SOURCE" ]; then
+#elif [ -n "$ZSH_VERSION" ]; then
+#	SCRIPT_PATH="$(realpath "${(%):-%N}")"
+#else
+#	echo "Unsupported shell"
+#	exit 1
+#fi
 DOTFILES_DIR="$(dirname "$(dirname "$SCRIPT_PATH")")"
 
 declare -A SYMLINKS=(
@@ -24,7 +24,8 @@ create_symlink() {
 
 	if [ -L "$dest" ]; then
 		echo "Replacing symlink: $dest"
-		ln -sf "$src" "$dest"
+		rm "$dest"
+		ln -s "$src" "$dest"
 		echo "Replaced symlink: $dest -> $src"
 
 	elif [ -e "$dest" ]; then

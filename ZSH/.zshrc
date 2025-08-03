@@ -204,3 +204,4 @@ setopt interactive_comments
 # fi
 
 chuck_cow
+source ~/powerlevel10k/powerlevel10k.zsh-theme
