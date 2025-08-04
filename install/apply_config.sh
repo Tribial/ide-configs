@@ -17,6 +17,7 @@ declare -A SYMLINKS=(
 	["$DOTFILES_DIR/Zellij"]="$HOME/.config/zellij"
 	["$DOTFILES_DIR/NeoVim"]="$HOME/.config/nvim"
 	["$DOTFILES_DIR/ZSH/.zshenv"]="$HOME/.zshenv"
+	["$DOTFILES_DIR/ZSH/.p10k.zsh"]="$HOME/.p10k.zsh"
 )
 
 create_symlink() {
