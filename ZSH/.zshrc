@@ -115,6 +115,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias n="nvim ."
+alias lg="lazygit"
 #
 
 fzf-cd-widget() {
@@ -204,4 +206,4 @@ setopt interactive_comments
 # fi
 
 chuck_cow
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
