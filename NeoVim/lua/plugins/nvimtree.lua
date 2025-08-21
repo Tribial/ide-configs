@@ -16,6 +16,7 @@ return {
       vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts 'Up')
       vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts 'Close Directory')
       vim.keymap.set('n', 'l', api.node.open.edit, opts 'Open')
+      vim.keymap.set('n', '<Esc>', ':NvimTreeClose<CR>', opts 'Close tree')
     end
     vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { desc = 'Focus tree' })
     require('nvim-tree').setup {

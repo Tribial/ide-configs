@@ -145,6 +145,7 @@ require('lazy').setup({
       },
     },
   },
+  require 'plugins.dashboard',
   require 'plugins.lspconfig'(lsp_servers, lsp_other),
   require 'plugins.conform'(conform_formatters_by_ft),
   require 'plugins.cmp',
