@@ -37,6 +37,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 --
+-- ========== Goto ==========
+-- vim.keymap.set('n', 'gp', ':CstScopeUp<CR>', {desc = '[G]oto [p]arent'})
 
 -- Keyboard hacks
 vim.keymap.set('n', '<A-S-o>', 'mzO<Esc>`z', { desc = 'Insert blank line above' })

@@ -57,6 +57,8 @@ map <c--> <Action>(PreviousTab)
 map <c-=> <Action>(NextTab)
 nmap <s-j> <Action>(PreviousTab)
 nmap <s-k> <Action>(NextTab)
+map <c-n> <Action>(EditorLookupDown)
+map <c-p> <Action>(EditorLookupUp)
 
 " Movement and goto mappings
 nnoremap <leader>e :NERDTreeFocus<CR>
@@ -75,6 +77,10 @@ nmap gk <Action>(MethodUp)
 nmap gb <Action>(GotoSuperMethod)
 nmap <leader>gx <Action>(Exit)
 nmap gt <Action>(JumpToLastWindow)
+
+" Code actions?
+nmap <leader>cc <Action>(CollapseRegion)
+nmap <leader>cv <Action>(ExpandRegion)
 
 " LSP mappings
 nmap <leader>lf <Action>(ReformatCode)
