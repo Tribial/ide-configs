@@ -115,8 +115,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias n="nvim ."
+alias n="nvim"
 alias lg="lazygit"
+alias gmn="git mergetool --tool=nvimdiff2"
+alias gdn="git difftool"
 #
 
 fzf-cd-widget() {
@@ -207,3 +209,5 @@ setopt interactive_comments
 
 chuck_cow
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+alias claude="/home/fdomurad/.claude/local/claude"

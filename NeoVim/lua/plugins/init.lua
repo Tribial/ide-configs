@@ -23,6 +23,7 @@ local treesitter_ensure_installed = {
   'query',
   'vim',
   'vimdoc',
+  'typescript',
 }
 
 local conform_formatters_by_ft = {
@@ -155,10 +156,12 @@ require('lazy').setup({
   require 'plugins.mini',
   require 'plugins.treesitter'(treesitter_ensure_installed),
   require 'plugins.lint',
+  require 'plugins.neotest',
+  require 'plugins.debug',
+  -- Claude Code integration (conditionally loaded via USE_NVIM_CLAUDE env var)
+  os.getenv 'USE_NVIM_CLAUDE' == 'true' and require 'plugins.claudecode' or nil,
   -- TODO: Reevaluate what's usefull, apply it, remove rest
-  -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require "kickstart.plugins.neo-tree",
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 }, {
   ui = {

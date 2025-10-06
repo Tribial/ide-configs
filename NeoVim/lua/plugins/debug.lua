@@ -5,11 +5,65 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
+local function find_cs_solution_root()
+	local dir = vim.fn.expand('%:p:h')
+	while dir ~= '/' do
+		if vim.fn.glob(dir .. '/*.slnx') ~= '' or vim.fn.glob(dir .. '/*.sln') ~= '' then
+			return dir
+		end
+		dir = vim.fn.fnamemodify(dir, ':h')
+	end
+	return nil
+end
+
+local function find_runnable_csprojs(root)
+	local csprojs = {}
+	local cmd = 'find ' .. root .. ' -name "*.csproj"'
+	local handle = io.popen(cmd)
+	local result = handle:read("*a")
+	handle:close()
+	for csproj in result:gmatch("[^\n]+") do
+		local proj_dir = vim.fn.fnamemodify(csproj, ':h')
+		if vim.fn.glob(proj_dir .. '/Program.cs') ~= '' then
+			table.insert(csprojs, csproj)
+		end
+	end
+	return csprojs
+end
+
+local function cs_select_and_build_project(callback)
+	local root = find_cs_solution_root()
+	if not root then
+		vim.notify("No solution root found", vim.log.levels.ERROR)
+		return
+	end
+	local csprojs = find_runnable_csprojs(root)
+	if #csprojs == 0 then
+		vim.notify("No runnable projects found", vim.log.levels.ERROR)
+		return
+	end
+	vim.ui.select(csprojs, {prompt = 'Select project:'}, function(selected)
+		if not selected then return end
+		local build_cmd = 'dotnet build ' .. selected
+		os.execute(build_cmd)
+		callback(selected)
+	end
+	)
+end
+
+local function cs_get_dll_path(csproj)
+	local base_dir = vim.fn.fnamemodify(csproj, ":h") .. "/bin/Debug/"
+	local proj_name = vim.fn.fnamemodify(csproj, ":t:r")
+	local net9_path = base_dir .."net9.0/" .. proj_name .. ".dll"
+	if vim.fn.glob(net9_path) ~= '' then
+		return net9_path
+	end
+	return base_dir .. "net8.0/" .. proj_name .. ".dll"
+end
+
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -23,11 +77,12 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+	-- 'nicholasmata/nvim-dap-cs',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<leader>ds',
+      '<F5>',
       function()
         require('dap').continue()
       end,
@@ -70,7 +125,7 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<leader>du',
+      '<F7>',
       function()
         require('dapui').toggle()
       end,
@@ -144,5 +199,26 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+	dap.adapters.coreclr = {
+			type = "executable",
+			command = "netcoredbg",
+			args = { "--interpreter=vscode"},
+		}
+	dap.configurations.cs = {
+			{
+				type = "coreclr",
+				name = "Launch .NET Project",
+				request = "launch",
+				program = function()
+					local result
+					local co = coroutine.running()
+					cs_select_and_build_project(function(choice)
+						result = cs_get_dll_path(choice)
+						coroutine.resume(co, result)
+					end)
+					return coroutine.yield()
+				end
+			}
+		}
   end,
 }
