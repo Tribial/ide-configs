@@ -3,6 +3,13 @@ return {
   dependencies = { "folke/snacks.nvim" },
   opts = {
     terminal_cmd = "~/.claude/local/claude",
+    diff_opts = {
+      auto_close_on_accept = true,
+      auto_close_on_deny = true,
+      layout = "vertical",
+      open_in_current_tab = false,
+      keep_terminal_focus = false,
+    },
   },
   config = true,
   keys = {

@@ -95,17 +95,17 @@ require('lazy').setup({
       }
     end,
   },
-  {
-    'akinsho/bufferline.nvim',
-    version = '*',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require('bufferline').setup {}
-      vim.opt.termguicolors = true
-      vim.keymap.set('n', '<S-j>', ':BufferLineCyclePrev<CR>', { desc = 'Buffer previous' })
-      vim.keymap.set('n', '<S-k>', ':BufferLineCycleNext<CR>', { desc = 'Buffer next' })
-    end,
-  },
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   version = '*',
+  --   dependencies = 'nvim-tree/nvim-web-devicons',
+  --   config = function()
+  --     require('bufferline').setup {}
+  --     vim.opt.termguicolors = true
+  --     vim.keymap.set('n', '<S-j>', ':BufferLineCyclePrev<CR>', { desc = 'Buffer previous' })
+  --     vim.keymap.set('n', '<S-k>', ':BufferLineCycleNext<CR>', { desc = 'Buffer next' })
+  --   end,
+  -- },
   {
     'unblevable/quick-scope',
     config = function()
@@ -134,6 +134,8 @@ require('lazy').setup({
   require 'plugins.nvimtree',
   require 'plugins.whichkey',
   require 'plugins.telescope',
+  require 'plugins.diffview',
+  require 'plugins.fugitive',
   -- ============================= LSP Plugins =============================
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
