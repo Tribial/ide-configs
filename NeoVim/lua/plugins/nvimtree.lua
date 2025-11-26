@@ -31,6 +31,13 @@ return {
         relativenumber = true,
         width = {},
       },
+      filters = {
+        git_ignored = false, -- Show gitignored files (they will be dimmed)
+      },
+      git = {
+        enable = true,
+        ignore = false, -- Don't hide gitignored files
+      },
     }
   end,
 }

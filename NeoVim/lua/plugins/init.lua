@@ -49,6 +49,17 @@ local lsp_servers = {
       },
     },
   },
+  pyright = {
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = 'basic',
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+        },
+      },
+    },
+  },
   prettier = {},
   terraformls = {},
   azure_pipelines_ls = {},

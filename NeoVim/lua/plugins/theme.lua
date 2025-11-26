@@ -19,6 +19,7 @@ return {
     vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
     vim.api.nvim_set_hl(0, 'NormalNC', { bg = '#000000' })
     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })
+    vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = '#000000' })
     vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#0f0f0f' })
     vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = '#000000', fg = '#000000' })
 
