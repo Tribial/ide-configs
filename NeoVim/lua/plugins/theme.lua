@@ -29,6 +29,12 @@ return {
     vim.api.nvim_set_hl(0, 'NvimTreeStatusLine', { bg = '#000000' })
     vim.api.nvim_set_hl(0, 'NvimTreeStatusLineNC', { bg = '#000000' })
 
+    -- Diagnostic highlights (underline + subtle background since undercurl doesn't work in Zellij)
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { underline = true, bg = '#3a1d1d' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { underline = true, bg = '#3a351d' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { underline = true, bg = '#1d2a3a' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { underline = true, bg = '#1d3a35' })
+
     vim.o.background = 'dark'
   end,
 }

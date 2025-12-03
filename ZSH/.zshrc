@@ -168,10 +168,12 @@ bindkey '^H' fzf-cd-widget
 export KUBE_EDITOR=nvim
 export ZELLIJ_AUTO_ATTACH=true
 # export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-# export DOTNET_ROOT="$HOME/.dotnet"
+# export DOTNET_ROOT="/usr/share/dotnet"
 # export PATH="$PATH:$HOME/.dotnet"
+export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$PATH:/usr/share/dotnet/tools"
 # export PATH="$PATH:$HOME/.local/share/ReSharper"
-alias jb_cleanupcode="$HOME/.local/share/ReSharper/cleanupcode.sh"
+# alias jb_cleanupcode="$HOME/.local/share/ReSharper/cleanupcode.sh"
 
 
 export NVM_DIR="$HOME/.nvm"
