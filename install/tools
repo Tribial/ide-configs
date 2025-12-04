@@ -8,7 +8,7 @@ fzf
 dotnet
 node+nvm+npm
 ca-certificates
-
+npm install -g markdownlint-cli
 
 #WORK
 terraform

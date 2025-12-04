@@ -33,7 +33,14 @@ return {
       },
       window = {
         completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered({
+          border = 'rounded',
+          max_width = 80,
+          max_height = 20,
+        }),
+      },
+      completion = {
+        completeopt = 'menu,menuone,noselect',
       },
       view = {
         entries = {
@@ -42,8 +49,8 @@ return {
         },
       },
       mapping = cmp.mapping.preset.insert {
-        -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<CR>'] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,

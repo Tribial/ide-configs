@@ -103,5 +103,10 @@ return {
 
     -- Git branches selector
     vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = '[G]it [B]ranches' })
+
+    -- Search all files including gitignored ones
+    vim.keymap.set('n', '<leader>sF', function()
+      builtin.find_files { hidden = true, no_ignore = true }
+    end, { desc = '[S]earch [F]iles (including ignored)' })
   end,
 }

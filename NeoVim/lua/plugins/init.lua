@@ -49,6 +49,17 @@ local lsp_servers = {
       },
     },
   },
+  pyright = {
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = 'basic',
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+        },
+      },
+    },
+  },
   prettier = {},
   terraformls = {},
   azure_pipelines_ls = {},
@@ -76,13 +87,13 @@ require('lazy').setup({
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     lazy = false,
-    config = true,
-    -- dependencies = 'hrsh7th/nvim-cmp',
-    -- config = function()
-    --   local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-    --   local cmp = require 'cmp'
-    --   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-    -- end,
+    dependencies = 'hrsh7th/nvim-cmp',
+    config = function()
+      require('nvim-autopairs').setup {}
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp = require 'cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    end,
   },
   {
     'ojroques/nvim-bufdel',
@@ -146,6 +157,16 @@ require('lazy').setup({
     opts = {
       library = {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'LspAttach',
+    opts = {
+      hint_enable = false, -- disable virtual text hints
+      handler_opts = {
+        border = 'rounded',
       },
     },
   },

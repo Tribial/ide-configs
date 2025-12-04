@@ -44,3 +44,23 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.bo.softtabstop = 0
   end,
 })
+
+-- Prevent :wa from trying to save C# source-generated/decompiled files
+vim.api.nvim_create_autocmd('BufRead', {
+  desc = 'Mark C# source-generated files as non-writable',
+  group = vim.api.nvim_create_augroup('csharp-generated-readonly', { clear = true }),
+  pattern = '*',
+  callback = function()
+    local path = vim.fn.expand('%:p')
+    local bufname = vim.api.nvim_buf_get_name(0)
+    -- Match: /obj/ dirs, .g.cs files, .nuget packages, .dll files, or LSP source-generated URIs
+    if path:match('/obj/')
+        or path:match('%.g%.cs$')
+        or path:match('%.nuget/')
+        or path:match('%.dll')
+        or bufname:match('assemblyVersion=') then
+      vim.bo.buftype = 'nofile'
+      vim.bo.modifiable = false
+    end
+  end,
+})

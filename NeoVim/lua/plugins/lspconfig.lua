@@ -25,7 +25,31 @@ local function lsp_config(servers, others)
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
           map('<leader>lr', vim.lsp.buf.rename, '[R]ename')
+          map('<leader>ls', vim.lsp.buf.signature_help, '[S]ignature help')
           map('<leader>la', vim.lsp.buf.code_action, '[A]ction', { 'n', 'x' })
+          map('<leader>lc', function()
+            local file = vim.fn.expand('%:p')
+            local cmd = { 'jb_cleanupcode', file, '--profile=Built-in: Reformat & Apply Syntax Style' }
+            vim.cmd('write')
+            vim.fn.jobstart(cmd, {
+                on_exit = function(_, exit_code)
+                  if exit_code == 0 then
+                    vim.schedule(function()
+                      vim.cmd('edit!')
+                      vim.notify('CleanupCode completed', vim.log.levels.INFO)
+                    end)
+                  else
+                    vim.schedule(function()
+                      vim.notify(vim.inspect(s))
+                      vim.notify('CleanupCode failed with exit code: ' .. exit_code, vim.log.levels.ERROR)
+                    end)
+                  end
+                end,
+              }
+            )
+          end, '[C]leanup code (JetBrains)')
+          map('<leader>lj', vim.diagnostic.goto_next, 'Next diagnostic')
+          map('<leader>lk', vim.diagnostic.goto_prev, 'Prev diagnostic')
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
           map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
           map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
@@ -91,15 +115,36 @@ local function lsp_config(servers, others)
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          -- Code lens (shows reference counts above functions/classes)
+          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_codeLens, event.buf) then
+            vim.lsp.codelens.refresh({ bufnr = event.buf })
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
+              buffer = event.buf,
+              group = vim.api.nvim_create_augroup('lsp-codelens', { clear = true }),
+              callback = function()
+                vim.lsp.codelens.refresh({ bufnr = event.buf })
+              end,
+            })
+            map('<leader>ll', vim.lsp.codelens.run, 'Code [L]ens run')
+          end
         end,
       })
+
+      -- Configure LSP floating windows to have borders
+      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or 'rounded'
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+      end
 
       -- Diagnostic Config
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
+        underline = true,
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
