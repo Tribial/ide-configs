@@ -54,6 +54,7 @@ local lsp_servers = {
   azure_pipelines_ls = {},
   tflint = {},
   bashls = {},
+  lemminx = {},
   -- roslyn = {},
 }
 
