@@ -216,3 +216,5 @@ chuck_cow
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 alias claude="/home/fdomurad/.claude/local/claude"
+
+. "$HOME/.local/bin/env"
