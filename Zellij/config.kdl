@@ -53,6 +53,7 @@ keybinds clear-defaults=true {
         bind "s" { ToggleActiveSyncTab; SwitchToMode "locked"; }
         bind "t" { SwitchToMode "normal"; }
         bind "x" { CloseTab; SwitchToMode "locked"; }
+        bind "d" { NewTab { layout "dev"; }; SwitchToMode "locked"; }
         bind "tab" { ToggleTab; }
     }
     resize {
