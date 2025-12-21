@@ -1,9 +1,14 @@
-
 #!/usr/bin/env bash
-mkdir -p ~/.local/share/fonts
-wget -O ~/.local/share/fonts/FiraCode.zip \
-	https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+set -euo pipefail
 
-unzip -o ~/.local/share/fonts/FiraCode.zip -d ~/.local/share/fonts
-rm ~/.local/share/fonts/FiraCode.zip
-fc-cache -fv
+FONT_DIR="$HOME/.local/share/fonts/FiraCodeNerdFont"
+ZIP="$FONT_DIR/FiraCode.zip"
+URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+
+mkdir -p "$FONT_DIR"
+
+wget -O "$ZIP" "$URL"
+unzip -o "$ZIP" -d "$FONT_DIR"
+rm "$ZIP"
+
+fc-cache -f "$FONT_DIR"

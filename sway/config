@@ -14,12 +14,24 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu wofi --show drun
 
 include /etc/sway/config-vars.d/*
+# No title bars, only thin borders
+default_border pixel 2
+default_floating_border pixel 2
 
+
+# Border color (focused / unfocused / urgent / placeholder)
+client.focused          #888888 #888888 #ffffff #888888 #888888
+client.unfocused        #555555 #555555 #aaaaaa #555555 #555555
+client.focused_inactive #666666 #666666 #aaaaaa #666666 #666666
+client.urgent           #cc4444 #cc4444 #ffffff #cc4444 #cc4444
+client.placeholder      #444444 #444444 #aaaaaa #444444 #444444
+
+client.background       #000000
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -229,6 +241,10 @@ bindsym $mod+r mode "resize"
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
 #}
+input type:keyboard {
+    xkb_layout pl
+}
+#for_window [app_id="kitty"] border none
 
 include /etc/sway/config.d/*
 exec waybar

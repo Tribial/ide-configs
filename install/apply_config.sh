@@ -20,7 +20,9 @@ declare -A SYMLINKS=(
 	["$DOTFILES_DIR/ZSH/.p10k.zsh"]="$HOME/.p10k.zsh"
 	["$DOTFILES_DIR/sway/config"]="$HOME/.config/sway/config"
 	["$DOTFILES_DIR/foot/foot.ini"]="$HOME/.config/foot/foot.ini"
-    	["$DOTFILES_DIR/Kitty/kitty.conf"]="$HOME/.config/kitty/kitty.conf"
+	["$DOTFILES_DIR/Kitty/kitty.conf"]="$HOME/.config/kitty/kitty.conf"
+	["$DOTFILES_DIR/waybar"]="$HOME/.config/waybar"
+	["$DOTFILES_DIR/pk10k"]="$HOME/.pk10k.zsh"
 )
 
 declare -A SUDO_SYMLINKS=(

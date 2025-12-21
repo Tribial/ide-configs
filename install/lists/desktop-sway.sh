@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -20,6 +19,8 @@ packages=(
 	"slurp"
 
 	"wofi"
+	"brightnessctl"
+	"playerctl"
 	"waybar"
 	"mako-notifier"
 	
@@ -29,10 +30,13 @@ packages=(
 	"pipewire-alsa"
 	"pipewire-jack"
 	"wireplumber"
+	"pulseaudio-utils"
 
 	"network-manager"
 
+	#should remove, nice but doesn't support ligatures
 	"foot"
+	"kitty"
 	
 	"greetd"
 	"tuigreet"

@@ -1,0 +1,70 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+
+  "modules-left": [
+    "sway/workspaces",
+    "sway/window"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "network",
+    "custom/brightness",
+    "battery"
+  ],
+
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "interval": 5,
+    "format": "{}"
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M}"
+  },
+
+  "cpu": {
+    "format": "CPU {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "MEM {percentage}%",
+    "interval": 2
+  },
+
+  "temperature": {
+    "format": "TMP {temperatureC}°C",
+    "critical-threshold": 80
+  },
+
+  "network": {
+    "format-wifi": "NET {signalStrength}%",
+    "format-ethernet": "NET eth",
+    "format-disconnected": "NET down"
+  },
+
+  "battery": {
+    "format": "BAT {capacity}%",
+    "format-charging": "BAT {capacity}%+",
+    "format-plugged": "BAT {capacity}%=",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    }
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 6
+  }
+}
+

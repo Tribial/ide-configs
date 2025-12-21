@@ -6,6 +6,9 @@ verify="$SCRIPT_DIR/verify_and_install.sh"
 
 packages=("$@")
 
+sudo apt update
+echo "===================================================================="
 for pkg in "${packages[@]}"; do
 	"$verify" "$pkg"
 done
+echo "===================================================================="
