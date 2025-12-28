@@ -1,5 +1,12 @@
 --  See `:help lua-guide-autocommands`
 
+-- Treat .slnx files as XML
+vim.filetype.add {
+  extension = {
+    slnx = 'xml',
+  },
+}
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),

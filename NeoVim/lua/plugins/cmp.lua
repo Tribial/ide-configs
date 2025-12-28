@@ -41,6 +41,7 @@ return {
       },
       completion = {
         completeopt = 'menu,menuone,noselect',
+        autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
       },
       view = {
         entries = {

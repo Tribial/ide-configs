@@ -35,6 +35,7 @@ local conform_formatters_by_ft = {
   javascriptreact = { 'prettier' },
   tf = { 'terraform_fmt' },
   tfvars = { 'terraform_fmt' },
+  xml = { 'xmllint' },
 }
 
 local lsp_servers = {

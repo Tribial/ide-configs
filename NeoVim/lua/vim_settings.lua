@@ -30,7 +30,8 @@ vim.g.markdown_fenced_languages = {
   'ts=typescript',
   'tsx=typescriptreact',
 }
-
+vim.opt.fixendofline = false
+vim.opt.endofline = false
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
