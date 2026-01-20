@@ -171,6 +171,8 @@ require('lazy').setup({
       },
     },
   },
+  require 'plugins.snacks',
+  require 'plugins.dotnet',
   require 'plugins.dashboard',
   require 'plugins.lspconfig'(lsp_servers, lsp_other),
   require 'plugins.conform'(conform_formatters_by_ft),
