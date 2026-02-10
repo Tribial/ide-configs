@@ -217,4 +217,6 @@ chuck_cow
 
 alias claude="/home/fdomurad/.claude/local/claude"
 
-. "$HOME/.local/bin/env"
+if [ -f "$HOME/.local/bin/env" ]; then 
+    . "$HOME/.local/bin/env"
+fi

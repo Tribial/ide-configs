@@ -25,6 +25,7 @@ packages=(
 	"nodejs"
 	"npm"
     "zsh"
+    "ripgrep"
 )
 "$run_list" "${packages[@]}"
 

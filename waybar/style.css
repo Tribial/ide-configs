@@ -26,6 +26,11 @@ window#waybar {
   color: #ffffff;
 }
 
+#custom-powermenu {
+  padding: 0 12px;
+  min-width: 24px;
+}
+
 #workspaces button {
   padding: 0 6px;
   color: #888888;
