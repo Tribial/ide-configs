@@ -30,6 +30,11 @@ local function conform_config(formatters_by_ft)
         end
       end,
       formatters_by_ft = formatters_by_ft,
+      formatters = {
+        xmllint = {
+          prepend_args = { '--nodecl' },
+        },
+      },
     },
   }
 end

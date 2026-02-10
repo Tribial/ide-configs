@@ -35,6 +35,7 @@ local conform_formatters_by_ft = {
   javascriptreact = { 'prettier' },
   tf = { 'terraform_fmt' },
   tfvars = { 'terraform_fmt' },
+  xml = { 'xmllint' },
 }
 
 local lsp_servers = {
@@ -170,6 +171,8 @@ require('lazy').setup({
       },
     },
   },
+  require 'plugins.snacks',
+  require 'plugins.dotnet',
   require 'plugins.dashboard',
   require 'plugins.lspconfig'(lsp_servers, lsp_other),
   require 'plugins.conform'(conform_formatters_by_ft),
