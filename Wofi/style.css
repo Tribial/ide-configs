@@ -1,0 +1,48 @@
+window {
+    background: #000000;
+    color: #ffffff;
+    font-family: "Fira Code", monospace;
+    font-size: 12pt;
+    border: 1px solid #555555;  /* szary border */
+    border-radius: 4px;          /* lekko zaokrąglone rogi */
+    padding: 4px;
+}
+
+listview row {
+    padding: 4px 8px;
+}
+
+listview row:selected {
+    background: #444444;
+    color: #f1fa8c; /* akcent dla zaznaczonego */
+}
+
+textbox {
+    color: #ffffff;
+    padding: 4px;
+}
+
+#input {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #555555;
+    padding: 4px 8px;
+}
+
+/* Tekst wpisywany */
+#input entry {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Placeholder / napis "drun" */
+#input entry placeholder {
+    color: #888888;
+}
+
+/* Kontener trybu (drun/run/window) */
+#prompt {
+    background: #000000;
+    color: #888888;
+    padding: 4px 8px;
+}

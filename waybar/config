@@ -2,15 +2,13 @@
   "layer": "top",
   "position": "top",
   "height": 28,
+  "exclusive": true,
+  "margin-right": 0,
+  "margin-left": 0,
 
-  "modules-left": [
-    "sway/workspaces",
-    "sway/window"
-  ],
+  "modules-left": ["sway/workspaces", "sway/window"],
 
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": ["clock"],
 
   "modules-right": [
     "cpu",
@@ -18,13 +16,20 @@
     "temperature",
     "network",
     "custom/brightness",
-    "battery"
+    "battery",
+    "custom/powermenu"
   ],
 
   "custom/brightness": {
     "exec": "~/.config/waybar/scripts/brightness.sh",
     "interval": 5,
     "format": "{}"
+  },
+
+  "custom/powermenu": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/power.sh"
   },
 
   "clock": {
@@ -67,4 +72,3 @@
     "spacing": 6
   }
 }
-

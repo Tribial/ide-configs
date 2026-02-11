@@ -7,7 +7,8 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# set $mod Scroll_Lock
+include ./leader.conf
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -77,6 +78,10 @@ client.background       #000000
 #
 # Basics:
 #
+    #swap leader
+    bindsym Mod4+Tab exec "~/.config/sway/scripts/toggle_leader.sh"
+    bindsym Scroll_Lock+Tab exec "~/.config/sway/scripts/toggle_leader.sh"
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -91,13 +96,15 @@ client.background       #000000
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    # floating_modifier $mod normal
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+e exec ~/.config/sway/scripts/power.sh
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -244,6 +251,11 @@ bindsym $mod+r mode "resize"
 input type:keyboard {
     xkb_layout pl
 }
+
+input * {
+    xkb_options caps:swapescape
+}
+
 #for_window [app_id="kitty"] border none
 
 include /etc/sway/config.d/*

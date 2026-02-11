@@ -18,11 +18,11 @@ declare -A SYMLINKS=(
 	["$DOTFILES_DIR/NeoVim"]="$HOME/.config/nvim"
 	["$DOTFILES_DIR/ZSH/.zshenv"]="$HOME/.zshenv"
 	["$DOTFILES_DIR/ZSH/.p10k.zsh"]="$HOME/.p10k.zsh"
-	["$DOTFILES_DIR/sway/config"]="$HOME/.config/sway/config"
+	["$DOTFILES_DIR/sway"]="$HOME/.config/sway"
 	["$DOTFILES_DIR/foot/foot.ini"]="$HOME/.config/foot/foot.ini"
 	["$DOTFILES_DIR/Kitty/kitty.conf"]="$HOME/.config/kitty/kitty.conf"
 	["$DOTFILES_DIR/waybar"]="$HOME/.config/waybar"
-	["$DOTFILES_DIR/pk10k"]="$HOME/.pk10k.zsh"
+	["$DOTFILES_DIR/Wofi/style.css"]="$HOME/.config/wofi/style.css"
 )
 
 declare -A SUDO_SYMLINKS=(
@@ -75,6 +75,7 @@ sudo_create_symlink() {
 
 mkdir -p "$HOME/.config/sway"
 mkdir -p "$HOME/.config/foot"
+mkdir -p "$HOME/.config/wofi"
 for src in "${!SYMLINKS[@]}"; do
     dest="${SYMLINKS[$src]}"
     create_symlink "$src" "$dest"

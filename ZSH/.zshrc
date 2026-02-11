@@ -217,4 +217,6 @@ fastfetch -c paleofetch --color green --logo-color-2 red --separator " => " --pi
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 
-. "$HOME/.local/bin/env"
+if [ -f "$HOME/.local/bin/env" ]; then 
+    . "$HOME/.local/bin/env"
+fi
