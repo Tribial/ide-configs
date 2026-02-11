@@ -104,7 +104,7 @@ local function cs_get_dll_path(csproj)
 	local base_dir = vim.fn.fnamemodify(csproj, ":h") .. "/bin/Debug/"
 	local proj_name = vim.fn.fnamemodify(csproj, ":t:r")
 	-- Check for common .NET versions in order of preference
-	local versions = { "net9.0", "net8.0", "net7.0", "net6.0" }
+	local versions = { "net10.0", "net9.0", "net8.0", "net7.0", "net6.0" }
 	for _, version in ipairs(versions) do
 		local path = base_dir .. version .. "/" .. proj_name .. ".dll"
 		if vim.fn.filereadable(path) == 1 then

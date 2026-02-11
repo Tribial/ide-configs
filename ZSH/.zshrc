@@ -212,9 +212,9 @@ setopt interactive_comments
 # 	exec zellij
 # fi
 
-chuck_cow
+# chuck_cow # goodby chuck!
+fastfetch -c paleofetch --color green --logo-color-2 red --separator " => " --pipe false
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-alias claude="/home/fdomurad/.claude/local/claude"
 
 . "$HOME/.local/bin/env"
